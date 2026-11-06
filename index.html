@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14a37f">
+  <title>Kontenery — ewidencja</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css?v=9970685">
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></symbol><symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3.5"/></symbol><symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3z"/><path d="M9 3v15M15 6v15"/></symbol><symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-nav" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8z"/></symbol><symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol><symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol><symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-prev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol><symbol id="i-next" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol><symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></symbol><symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol><symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol></svg>
+  <header class="topbar">
+    <button id="btn-back" class="icon-btn" aria-label="Wstecz" hidden><svg class="ic" aria-hidden="true"><use href="#i-back"/></svg></button>
+    <h1 id="title">Kontenery</h1>
+    <label class="user-pick" title="Kto wykonuje wpis">
+      <svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>
+      <select id="user" aria-label="Użytkownik">
+        <option value="">—</option>
+        <option>Janek</option>
+        <option>Tomek</option>
+        <option>Karol</option>
+      </select>
+    </label>
+    <button id="btn-login" class="badge login" type="button" aria-label="Logowanie do systemu firmy">Zaloguj</button>
+    <button id="btn-version" class="badge" type="button" aria-label="Pokaż wersję aplikacji">demo</button>
+  </header>
+
+  <main>
+    <!-- LISTA -->
+    <section id="view-list" class="view">
+      <div class="welcome">
+        <div class="welcome-text">
+          <h2>Ewidencja kontenerów</h2>
+        </div>
+        <button id="btn-add" class="btn btn-primary btn-big"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> Zdjęcie kontenera</button>
+        <div class="row">
+          <a id="btn-map" class="btn btn-soft-blue" href="#/map"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Mapa</a>
+          <a id="btn-samples" class="btn btn-soft-orange" href="#/samples"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg> Przykłady</a>
+        </div>
+      </div>
+      <div id="stats" class="stats"></div>
+      <h3 class="section">Kontenery</h3>
+      <p id="list-empty" class="empty" hidden><svg class="ic ic-xl" aria-hidden="true"><use href="#i-box"/></svg><br>Brak kontenerów.<br><small>Zrób zdjęcie pierwszego.</small></p>
+      <ul id="list" class="cards"></ul>
+    </section>
+
+    <!-- DODAWANIE -->
+    <section id="view-add" class="view" hidden>
+      <label class="photo-drop" id="photo-drop">
+        <input id="photo-input" type="file" accept="image/*" capture="environment" hidden>
+        <img id="photo-preview" alt="" hidden>
+        <span id="photo-hint"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-camera"/></svg><br>Dotknij, aby zrobić zdjęcie kontenera<br><small>numer powinien być dobrze widoczny</small></span>
+      </label>
+      <div id="photo-actions" class="photo-actions" hidden>
+        <span class="muted small">Dotknij zdjęcia, aby je powiększyć</span>
+        <button id="btn-retake" class="link-btn" type="button"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> Nowe zdjęcie</button>
+      </div>
+
+      <div class="panel" id="number-panel">
+        <div class="panel-title"><span class="dot d-green"><svg class="ic" aria-hidden="true"><use href="#i-hash"/></svg></span>Numer kontenera</div>
+        <div id="ocr-status" class="muted small">Zrób zdjęcie — numer zostanie odczytany automatycznie.</div>
+        <div id="ocr-progress" class="progress" hidden><div></div></div>
+        <div id="candidates" class="chips"></div>
+        <img id="number-crop" class="number-crop" alt="Fragment zdjęcia z numerem" hidden>
+        <input id="number" class="input-number" type="text" inputmode="text" autocapitalize="characters"
+               placeholder="np. KP7-1234" autocomplete="off">
+      </div>
+
+      <button id="btn-save" class="btn btn-primary btn-big" disabled>Zapisz</button>
+
+      <div class="panel">
+        <div class="panel-title"><span class="dot d-blue"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span>Lokalizacja <button id="btn-gps" class="link-btn" type="button">odśwież</button></div>
+        <div id="gps-status" class="muted small">Pobieram współrzędne…</div>
+        <div id="gps-coords" class="coords"></div>
+        <div id="gps-map" class="gps-map" hidden></div>
+      </div>
+    </section>
+
+    <!-- MAPA WSZYSTKICH -->
+    <section id="view-map" class="view" hidden>
+      <div id="map-all" class="map-all"></div>
+      <div class="legend">
+        <span><i style="background:#2f6fe4"></i>KP5</span>
+        <span><i style="background:#16a34a"></i>KP7</span>
+        <span><i style="background:#ea7a1a"></i>KP10</span>
+        <span><i style="background:#8b5cf6"></i>pojemniki</span>
+        <span><i style="background:#0f9fa8"></i>inne</span>
+      </div>
+      <div id="map-info" class="muted small center"></div>
+    </section>
+
+    <!-- PRZYKŁADOWE ZDJĘCIA -->
+    <section id="view-samples" class="view" hidden>
+      <div class="tip">
+        <b>Jak użyć:</b> pokaż zdjęcie na tym urządzeniu (dotknij — otworzy się na cały ekran),
+        a drugim telefonem zrób mu zdjęcie w „Zdjęcie kontenera”.
+      </div>
+      <div id="samples" class="samples"></div>
+    </section>
+
+    <!-- SZCZEGÓŁY -->
+    <section id="view-detail" class="view" hidden>
+      <div id="detail"></div>
+    </section>
+  </main>
+
+  <footer class="footer muted small">
+    <span id="online"></span>
+  </footer>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <!-- Pokaz zdjęcia na pełnym ekranie -->
+  <div id="viewer" class="viewer" hidden>
+    <img id="viewer-img" alt="" draggable="false">
+    <div id="viewer-hint" class="viewer-hint">Rozsuń palce albo dotknij dwa razy, aby powiększyć</div>
+    <div class="viewer-bar">
+      <button id="viewer-prev" class="viewer-btn" aria-label="Poprzednie"><svg class="ic" aria-hidden="true"><use href="#i-prev"/></svg></button>
+      <span id="viewer-caption"></span>
+      <button id="viewer-next" class="viewer-btn" aria-label="Następne"><svg class="ic" aria-hidden="true"><use href="#i-next"/></svg></button>
+    </div>
+    <button id="viewer-close" class="viewer-btn viewer-close" aria-label="Zamknij"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+
+  <!-- Hasło przed wejściem: kod aplikacji startuje dopiero po jego podaniu -->
+  <div id="gate" class="gate" hidden>
+    <form id="gate-form" class="gate-card" autocomplete="off">
+      <img src="icon.svg" alt="" class="gate-logo">
+      <h2>Kontenery — demo</h2>
+      <p>Podaj hasło, aby otworzyć aplikację.</p>
+      <input id="gate-pass" type="password" placeholder="Hasło" aria-label="Hasło" autocomplete="current-password" required>
+      <div id="gate-err" class="gate-err" hidden>Nieprawidłowe hasło</div>
+      <button class="btn btn-primary" type="submit">Wejdź</button>
+    </form>
+  </div>
+  <template id="app-js"><script src="app.js?v=9970685"></script></template>
+  <script>
+  (function () {
+    // Skrót SHA-256 hasła — w źródle nie ma hasła otwartym tekstem
+    var HASH = '4a119fcf38520552f93d6a259f02217f6e2260f23eb3a66aeaf62ef484955f5b';
+    var COOKIE = 'kontenery_dostep';
+    function start() {
+      document.documentElement.classList.remove('locked');
+      document.getElementById('gate').hidden = true;
+      var src = document.getElementById('app-js').content.querySelector('script').getAttribute('src');
+      var s = document.createElement('script'); s.src = src; document.body.appendChild(s);
+    }
+    function sha(t) {
+      if (!(window.crypto && crypto.subtle)) return Promise.resolve(null);
+      return crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)).then(function (b) {
+        return Array.from(new Uint8Array(b)).map(function (x) { return x.toString(16).padStart(2, '0'); }).join('');
+      });
+    }
+    var m = document.cookie.match(new RegExp('(?:^|; )' + COOKIE + '=([^;]*)'));
+    if (m && m[1] === HASH) return start();
+    document.documentElement.classList.add('locked');
+    var gate = document.getElementById('gate'); gate.hidden = false;
+    var inp = document.getElementById('gate-pass'), err = document.getElementById('gate-err');
+    inp.focus();
+    document.getElementById('gate-form').onsubmit = function (e) {
+      e.preventDefault();
+      var t = inp.value.trim().toLowerCase();
+      sha(t).then(function (h) {
+        // bez crypto.subtle (zwykłe http w sieci domowej) — porównanie wprost
+        if (h === HASH || (h === null && t === 'ojoj')) {
+          document.cookie = COOKIE + '=' + HASH + '; max-age=31536000; path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
+          start();
+        } else { err.hidden = false; inp.select(); }
+      });
+    };
+  })();
+  </script>
+</body>
+</html>
